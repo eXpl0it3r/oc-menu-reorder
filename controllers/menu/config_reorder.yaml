@@ -1,0 +1,3 @@
+title: Menu Reorder
+nameFrom: label
+modelClass: Lukas\MenuReorder\Models\BackendMainMenu
