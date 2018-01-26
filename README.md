@@ -4,7 +4,7 @@
 
 *Menu Reorder* is a very simple [October CMS](https://octobercms.com) plugin to reorder the backen main menu.
 
-By default the backend main menu is simply order by the values defined the each `Plugin.php`.
+By default the backend main menu items are order by the values defined by each plugin in their `Plugin.php`. Menu Reorder allows you to change the order as you see fit.
 
 ![Image 01](https://i.imgur.com/lYm0Pug.png)
 
@@ -15,8 +15,18 @@ By default the backend main menu is simply order by the values defined the each 
 You can install the plugin from the marketplace, otherwise follow these steps
 
 1. Download the zip-archive
-2. Unpack it into the plugin directory
-3. You're good to go
+1. Unpack it into the plugin directory
+1. You're good to go
+
+## Usage
+
+The plugin registers a new backend main menu entry which you can use to navigate to the reorder list.
+
+The reorder list provides you the possibility to change the backend main menu's order.
+
+A change will only become visible once your refresh the page or navigate to a different backend page.
+
+To restore the original order, simply remove the plugin.
 
 ## License
 
