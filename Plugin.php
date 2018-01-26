@@ -47,8 +47,7 @@ class Plugin extends PluginBase
 
     public function boot()
     {
-        Event::listen('backend.page.beforeDisplay', function ($controller, $action, $params)
-        {
+        Event::listen('backend.page.beforeDisplay', function ($controller, $action, $params) {
             $this->adjustMainMenu();
         });
     }
@@ -58,14 +57,11 @@ class Plugin extends PluginBase
         $dbItems = BackendMainMenu::all();
         $navItems = NavigationManager::instance()->listMainMenuItems();
 
-        foreach ($navItems as $navItem)
-        {
+        foreach ($navItems as $navItem) {
             $contains = false;
 
-            foreach ($dbItems as $dbItem)
-            {
-                if ($dbItem->code == $navItem->code)
-                {
+            foreach ($dbItems as $dbItem) {
+                if ($dbItem->code == $navItem->code) {
                     $dbItem->label = Lang::get($navItem->label);
                     $dbItem->save();
 
@@ -75,8 +71,7 @@ class Plugin extends PluginBase
                 }
             }
 
-            if (!$contains)
-            {
+            if (!$contains) {
                 $newDbItem = new BackendMainMenu;
                 $newDbItem->label = Lang::get($navItem->label);
                 $newDbItem->code = $navItem->code;
@@ -90,13 +85,11 @@ class Plugin extends PluginBase
             NavigationManager::instance()->removeMainMenuItem($navItem->owner, $navItem->code);
         }
 
-        usort($navItems, function($a, $b)
-        {
+        usort($navItems, function($a, $b) {
             return ($a->order > $b->order);
         });
 
-        foreach ($navItems as $navItem)
-        {
+        foreach ($navItems as $navItem) {
             NavigationManager::instance()->addMainMenuItem($navItem->owner, $navItem->code, (array) $navItem);
         }
     }
