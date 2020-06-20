@@ -13,7 +13,7 @@ class CreateLukasMenureorderBackendMainMenu extends Migration
             $table->increments('id');
             $table->string('label');
             $table->string('code');
-            $table->integer('sort_order')->unsigned();
+            $table->integer('sort_order')->unsigned()->default(0);
         });
     }
     
