@@ -3,4 +3,4 @@ plugin:
     description: 'Plugin to reorder administration menu entries'
     author: 'Lukas Dürrenberger'
     icon: oc-icon-reorder
-    homepage: 'https://my-gate.net/'
+    homepage: 'https://dev.my-gate.net/'

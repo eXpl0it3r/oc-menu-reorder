@@ -25,7 +25,7 @@ class Plugin extends PluginBase
             'description' => 'lukas.menureorder::lang.description',
             'author'      => 'Lukas Dürrenberger',
             'icon'        => 'icon-reorder',
-            'homepage'    => 'https://github.com/eXpl0it3r/octobercms-menu-reorder'
+            'homepage'    => 'https://github.com/eXpl0it3r/oc-menu-reorder'
         ];
     }
 

@@ -1,3 +1,6 @@
+1.0.1:
+    - Add default value to sort_order column
+    - add_sort_order_default_value.php
 1.0.0:
     - 'First version of Menu Reorder'
     - create_lukas_menureorder_backendmainmenu.php
