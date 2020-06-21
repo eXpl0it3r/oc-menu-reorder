@@ -6,21 +6,33 @@
 
 By default the backend main menu items are order by the values defined by each plugin in their `Plugin.php`. Menu Reorder allows you to change the order as you see fit.
 
-![Image 01](https://i.imgur.com/lYm0Pug.png)
+![Menu Reorder Backend View](https://i.imgur.com/Z04EYpg.png)
 
-![Image 02](https://i.imgur.com/c0hIXYD.png)
+![Order being changed](https://i.imgur.com/VZwRp4Y.png)
 
 ## Installation
 
-You can install the plugin from the marketplace, otherwise follow these steps
+### Marketplace
+
+1. Navigate to 'Settings' > 'Updates & Plugin' in the backend of your October CMS installation
+2. Click on '+ Install plugins'
+3. Search for 'Menu Reorder'
+4. Click on the search result for the plugin
+
+### Artisan CLI
+
+1. Open a terminal and navigate to the October CMS directory
+2. Run `php artisan plugin:install Lukas.MenuReorder`
+
+### Manual
 
 1. Download the zip-archive
-1. Unpack it into the plugin directory
-1. You're good to go
+2. Unpack it into the plugin directory
+3. When you log into the backend the next time, the migrations should be applied
 
 ## Usage
 
-The plugin registers a new backend main menu entry which you can use to navigate to the reorder list.
+The plugin registers a new settings navigation item under 'Settings' > 'System' > 'Menu Reorder'.
 
 The reorder list provides you the possibility to change the backend main menu's order.
 

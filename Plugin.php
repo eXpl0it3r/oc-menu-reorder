@@ -8,16 +8,8 @@ use System\Classes\PluginBase;
 use Backend\Classes\NavigationManager;
 use Lukas\MenuReorder\Models\BackendMainMenu;
 
-/**
- * UserMenu Plugin Information File
- */
 class Plugin extends PluginBase
 {
-    /**
-     * Returns information about this plugin.
-     *
-     * @return array
-     */
     public function pluginDetails()
     {
         return [
@@ -29,19 +21,18 @@ class Plugin extends PluginBase
         ];
     }
 
-    /**
-     * Registers back-end navigation items for this plugin.
-     *
-     * @return array
-     */
-    public function registerNavigation()
+    public function registerSettings()
     {
         return [
-            'users' => [
+            'menureorder' => [
                 'label'       => 'lukas.menureorder::lang.title',
+                'description' => 'lukas.menureorder::lang.description',
+                'category'    => 'system::lang.system.categories.system',
+                'icon'        => 'icon-reorder',
                 'url'         => Backend::url('lukas/menureorder/menu/reorder'),
-                'icon'        => 'icon-reorder'
-            ],
+                'order'       => 500,
+                'keywords'    => 'menu backend reorder'
+            ]
         ];
     }
 
