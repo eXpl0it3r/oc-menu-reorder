@@ -1,3 +1,5 @@
+1.1.1:
+    - Delete database entries for removed navigation items
 1.1.0:
     - Move navigation from backend menu to settings menu
     - Actually mark the navigation as active

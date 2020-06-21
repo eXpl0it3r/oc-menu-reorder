@@ -48,27 +48,52 @@ class Plugin extends PluginBase
         $dbItems = BackendMainMenu::all();
         $navItems = NavigationManager::instance()->listMainMenuItems();
 
+        $this->deleteRemovedNavigationItems($dbItems, $navItems);
+        $this->updateAndSortNavigationItems($dbItems, $navItems);
+    }
+
+    private function deleteRemovedNavigationItems($dbItems, $navItems)
+    {
+        foreach ($dbItems as $dbItem) {
+            $contains = false;
+
+            $matchingNavItems = array_filter($navItems, function($navItem) use ($dbItem) {
+                return $dbItem->code == $navItem->code;
+            });
+
+            if (empty($matchingNavItems)) {
+                $dbItem->delete();
+            }
+        }
+    }
+
+    private function updateAndSortNavigationItems($dbItems, $navItems)
+    {
         foreach ($navItems as $navItem) {
             $contains = false;
 
             foreach ($dbItems as $dbItem) {
                 if ($dbItem->code == $navItem->code) {
+                    // Update label in database
                     $dbItem->label = Lang::get($navItem->label);
                     $dbItem->save();
 
+                    // Set saved order value
                     $navItem->order = $dbItem->sort_order;
 
                     $contains = true;
+                    break;
                 }
             }
 
             if (!$contains) {
+                // Insert new navigation item
                 $newDbItem = new BackendMainMenu;
                 $newDbItem->label = Lang::get($navItem->label);
                 $newDbItem->code = $navItem->code;
                 $newDbItem->save();
 
-                // Set initial sort value.
+                // Set initial sort value
                 $newDbItem->sort_order = $newDbItem->id;
                 $newDbItem->save();
             }
